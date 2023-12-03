@@ -11,7 +11,7 @@ function Note(props) {
 
 
   const  deleteNote= async () => {
-    const url = `http://localhost:8080/submit/deleteNote`;
+    const url = `${process.env.REACT_APP_API_URL}/submit/deleteNote`;
     
     try {
       const response = await fetch(url, {

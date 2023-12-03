@@ -16,7 +16,7 @@ function Login( props){
     const googleAuth = () => {
         //console.log("click");
 		window.open(
-			`http://localhost:8080/auth/google/signup`,
+			`${process.env.REACT_APP_API_URL}/auth/google/signup`,
 			"_self"
 		);
 

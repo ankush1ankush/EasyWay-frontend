@@ -15,7 +15,7 @@ function Register(props){
  const RegisterUser= async (event)=>{
     event.preventDefault()
      //console.log(user);
-    const url  = `http://localhost:8080/submit/register`;
+    const url  = `${process.env.REACT_APP_API_URL}/submit/register`;
 
     try{
          

@@ -43,7 +43,7 @@ function CreateArea(props) {
 
   
   const ADDdata = async () => {
-    const url = `http://localhost:8080/submit/addNote`;
+    const url = `${process.env.REACT_APP_API_URL}/submit/addNote`;
     
     try {
       const response = await fetch(url, {

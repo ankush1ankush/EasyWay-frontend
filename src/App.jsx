@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import Header from  "./Header/Header"
 import Footer from "./Footer/Footer";
 import Home from "./Home/Home";
-import Register from "./Register/Register"
+import Register from "./Register/Register";
+//import UploadImage from "./UploadImage/UploadImage";
+import UploadFile from "./UploadFile/UploardFile"
 import "./App.css";
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -18,7 +20,7 @@ function App() {
 
   
   const getUser = async () => {
-    const url = `http://localhost:8080/auth/login/success`;
+    const url = `${process.env.REACT_APP_API_URL}/auth/login/success`;
 
     try {
       const response = await fetch(url, {
@@ -48,13 +50,17 @@ function App() {
 
   return (
     <div className="App">
-      <Header  User={user} />
+      
       <BrowserRouter>
+      <Header  User={user} />    
       <Routes>
-            
+        
           <Route path="/"  element={user?<Home User={user}/>:<Navigate to="/login"/>}/>
           <Route path="/login"  element={user?<Navigate to="/"/>:<Login UpdateUser={setUser}/>}/>
           <Route path="/register"  element={user?<Navigate to='/'/>:<Register UpdateUser={setUser}/>}/>
+       
+          <Route Path="/UploadFile"  element={user?<UploadFile UpdateUser={setUser}/>:<Navigate to='/'/>}/>
+          
       </Routes>
       
       </BrowserRouter>
